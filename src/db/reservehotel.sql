@@ -40,6 +40,7 @@ CREATE TABLE Cliente (
     Email VARCHAR(100) NOT NULL,
     Teléfono VARCHAR(10),
     Dirección VARCHAR(255)
+    FOREIGN KEY (UserID) REFERENCES CuentaUsuario(UserID)
 );
 
 -- Tabla Reserva
@@ -60,10 +61,12 @@ CREATE TABLE Reserva (
 CREATE TABLE Pago (
     PagoID INT AUTO_INCREMENT PRIMARY KEY,
     ReservaID INT,
+    ClienteID INT,
     Fecha_de_pago DATE NOT NULL,
     Monto DECIMAL(10, 2) NOT NULL,
     Método_de_pago VARCHAR(50),
-    FOREIGN KEY (ReservaID) REFERENCES Reserva(ReservaID)
+    FOREIGN KEY (ReservaID) REFERENCES Reserva(ReservaID),
+    FOREIGN KEY (ClienteID) REFERENCES Cliente(ClienteID)
 );
 
 -- Tabla Servicio
@@ -74,26 +77,6 @@ CREATE TABLE Servicio (
     Precio DECIMAL(10, 2) NOT NULL
 );
 
--- Tabla Imagen
-CREATE TABLE Imagen (
-    ImagenID INT AUTO_INCREMENT PRIMARY KEY,
-    HotelID INT,
-    URL VARCHAR(255),
-    Descripción VARCHAR(500),
-    FOREIGN KEY (HotelID) REFERENCES Hotel(HotelID)
-);
-
--- Tabla Promoción/oferta especial
-CREATE TABLE Promocion (
-    PromocionID INT AUTO_INCREMENT PRIMARY KEY,
-    HotelID INT,
-    Nombre VARCHAR(100),
-    Descripción VARCHAR(500),
-    FechaInicio DATE,
-    FechaFin DATE,
-    FOREIGN KEY (HotelID) REFERENCES Hotel(HotelID)
-);
-
 -- Tabla Cuenta de Usuario
 CREATE TABLE CuentaUsuario (
     UserID INT AUTO_INCREMENT PRIMARY KEY,
@@ -101,47 +84,6 @@ CREATE TABLE CuentaUsuario (
     CorreoElectronico VARCHAR(100) NOT NULL,
     Contraseña VARCHAR(255) NOT NULL,
     FechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Tabla Sesión
-CREATE TABLE Sesion (
-    SessionID INT AUTO_INCREMENT PRIMARY KEY,
-    UserID INT,
-    Token VARCHAR(255) NOT NULL,
-    FechaInicio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FechaExpiración TIMESTAMP,
-    FOREIGN KEY (UserID) REFERENCES CuentaUsuario(UserID)
-);
-
--- Tabla Perfil de Usuario
-CREATE TABLE PerfilUsuario (
-    PerfilID INT AUTO_INCREMENT PRIMARY KEY,
-    UserID INT,
-    NombreCompleto VARCHAR(200),
-    Dirección VARCHAR(255),
-    Teléfono VARCHAR(20),
-    FOREIGN KEY (UserID) REFERENCES CuentaUsuario(UserID)
-);
-
--- Tabla Registro de actividad
-CREATE TABLE RegistroActividad (
-    ActividadID INT AUTO_INCREMENT PRIMARY KEY,
-    UserID INT,
-    Acción VARCHAR(255),
-    Fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (UserID) REFERENCES CuentaUsuario(UserID)
-);
-
--- Tabla Comentario/Reseña
-CREATE TABLE Comentario (
-    ComentarioID INT AUTO_INCREMENT PRIMARY KEY,
-    UserID INT,
-    HotelID INT,
-    Puntuación INT,
-    Comentario TEXT,
-    Fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (UserID) REFERENCES CuentaUsuario(UserID),
-    FOREIGN KEY (HotelID) REFERENCES Hotel(HotelID)
 );
 
 
@@ -170,30 +112,7 @@ VALUES (1, '2024-07-01', 500.00, 'Tarjeta de crédito');
 INSERT INTO Servicio (Nombre, Descripción, Precio)
 VALUES ('Wi-Fi', 'Conexión a internet de alta velocidad', 10.00);
 
--- Inserción de datos en la tabla Imagen
-INSERT INTO Imagen (HotelID, URL, Descripción)
-VALUES (1, 'https://imagenhoteloroverde.jpg', 'Vista frontal del hotel');
-
--- Inserción de datos en la tabla Promoción/oferta especial
-INSERT INTO Promocion (HotelID, Nombre, Descripción, FechaInicio, FechaFin)
-VALUES (1, 'Oferta de Verano', 'Descuento del 20% para reservas en verano', '2024-06-01', '2024-08-31');
-
 -- Inserción de datos en la tabla Cuenta de Usuario
 INSERT INTO CuentaUsuario (NombreUsuario, CorreoElectronico, Contraseña)
 VALUES ('Marlon Vera', 'marlon@gmail.com', 'sincontraseña24');
 
--- Inserción de datos en la tabla Sesión
-INSERT INTO Sesion (UserID, Token, FechaInicio, FechaExpiración)
-VALUES (1, 'ut56sdh', '2024-06-08 12:00:00', '2024-06-08 13:00:00');
-
--- Inserción de datos en la tabla Perfil de Usuario
-INSERT INTO PerfilUsuario (UserID, NombreCompleto, Dirección, Teléfono)
-VALUES (1, 'Marlon Vera', 'Manta', '1234567890');
-
--- Inserción de datos en la tabla Registro de actividad
-INSERT INTO RegistroActividad (UserID, Acción)
-VALUES (1, 'Inicio de sesión');
-
--- Inserción de datos en la tabla Comentario/Reseña
-INSERT INTO Comentario (UserID, HotelID, Puntuación, Comentario)
-VALUES (1, 1, 5, 'Excelente servicio y comodidades.');
