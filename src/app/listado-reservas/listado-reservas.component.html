@@ -1,0 +1,30 @@
+<h1>Listado de Reservas</h1>
+<div *ngIf="!hayReservas()" class="no-reservas">
+  <p>No hay reservas disponibles.</p>
+  <p><a routerLink="/reserva" class="agregar-reserva-link">Nueva Reserva</a></p>
+</div>
+<table *ngIf="hayReservas()">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Fecha de Entrada</th>
+      <th>Fecha de Salida</th>
+      <th>Ciudad</th>
+      <th>Tipo de Habitación</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reserva of reservas; let i = index">
+      <td>{{ reserva.nombre }}</td>
+      <td>{{ reserva.fechaEntrada }}</td>
+      <td>{{ reserva.fechaSalida }}</td>
+      <td>{{ reserva.ciudadSeleccionada }}</td>
+      <td>{{ reserva.tipoHabitacion }}</td>
+      <td>
+        <button (click)="editarReserva(i)">Editar</button>
+        <button (click)="eliminarReserva(i)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

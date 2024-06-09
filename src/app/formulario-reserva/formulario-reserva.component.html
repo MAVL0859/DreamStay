@@ -1,0 +1,32 @@
+<section class="reservation-form">
+  <h1><strong><em>DreamStay</em></strong></h1>
+  <h3>Nueva Reserva</h3>
+
+  <form>
+    <div>
+      <label for="nombre">Nombre</label>
+      <input [(ngModel)]="nombre" type="text" id="nombre" name="nombre" required>
+    </div>
+    <div>
+      <label for="fechaEntrada">Fecha de Entrada</label>
+      <input [(ngModel)]="fechaEntrada" type="date" id="fechaEntrada" name="fechaEntrada" required>
+    </div>
+    <div>
+      <label for="fechaSalida">Fecha de Salida</label>
+      <input [(ngModel)]="fechaSalida" type="date" id="fechaSalida" name="fechaSalida" required>
+    </div>
+    <div>
+      <label for="ciudad">Escoger la Ciudad</label>
+      <select [(ngModel)]="ciudadSeleccionada" name="ciudad" id="ciudad">
+        <option *ngFor="let ciudad of ciudadesDisponibles" [value]="ciudad">{{ ciudad }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="tipoHabitacion">Tipo de Habitación</label>
+      <select [(ngModel)]="tipoHabitacion" name="tipoHabitacion" id="tipoHabitacion">
+        <option *ngFor="let tipo of tiposHabitacion" [value]="tipo">{{ tipo }}</option>
+      </select>
+    </div>
+    <button type="button" (click)="guardarReserva()">Guardar Reserva</button>
+  </form>
+</section>

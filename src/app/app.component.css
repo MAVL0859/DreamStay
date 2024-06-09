@@ -1,0 +1,25 @@
+/* app.component.css */
+
+.navbar {
+  padding: px; /* Espacio alrededor de los botones */
+  margin-bottom: 20px;
+}
+
+.navbar button {
+  background-color: #555; /* Color de fondo de los botones */
+  color: white; /* Color del texto */
+  border: none; /* Sin bordes */
+  padding: 10px 20px; /* Espacio alrededor del texto */
+  margin-right: 10px; /* Espacio entre los botones */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.navbar button:hover {
+  background-color: #777; /* Cambia el color de fondo al pasar por encima */
+}
+
+.navbar button:focus {
+  outline: none; /* Quita el contorno al hacer clic */
+}

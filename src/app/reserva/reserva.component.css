@@ -1,0 +1,95 @@
+/* Estilos para el contenedor principal del menú y contenido */
+.menu {
+  display: flex;
+  flex-direction: row; /* Cambiar la dirección a horizontal */
+}
+
+/* Estilos para el barra lateral */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(to bottom, #333 0%, #222 100%); /* Fondo degradado */
+  color: #fff;
+  padding: 12px;
+  display: flex;
+  flex-direction: column; /* Alinear elementos verticalmente */
+  align-items: center; /* Centrar horizontalmente */
+}
+
+/* Estilos para los elementos dentro de la barra lateral */
+.sidebar h2 {
+  margin-bottom: 500px; /* Espaciado entre encabezados */
+  font-size: 1.5rem; /* Tamaño de fuente más grande para encabezados */
+}
+
+.sidebar p {
+  margin-bottom: 10px; /* Espaciado entre párrafos */
+  font-size: 1rem; /* Tamaño de fuente regular */
+}
+
+/* Estilos para el contenido */
+.content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* Estilos para las ubicaciones */
+.locations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Estilos para cada ubicación */
+.location {
+  flex-basis: calc(33.33% - 20px); /* Ajusta el ancho según el número de columnas deseadas */
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex; /* Cambiar la disposición a horizontal */
+  align-items: center; /* Centrar verticalmente */
+}
+
+/* Estilos para las imágenes de los hoteles */
+.hotel img {
+  width: 300px; /* Ajusta el tamaño de la imagen */
+  height: 200px; /* Ajusta el tamaño de la imagen */
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+/* Estilos para los detalles de los hoteles */
+.details {
+  flex-grow: 1;
+  margin-top: 10px; /* Aumenta el espacio entre la imagen y los detalles */
+}
+
+/* Estilos para los iconos de los hoteles */
+.icons span {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 5px; /* Aumenta el espacio entre los iconos */
+}
+
+
+/* Estilos para el precio de los hoteles */
+.price {
+  font-weight: bold;
+  margin-top: 10px; /* Aumenta el espacio entre los detalles y el precio */
+}
+
+/* Estilos para los botones de reserva */
+.pricing button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pricing button:hover {
+  background-color: #0056b3;
+}
