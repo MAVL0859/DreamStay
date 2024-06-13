@@ -1,12 +1,22 @@
 <h1>Login</h1>
 <div class="container">
-<div>
-  <label for="usuario">Usuario</label>
-  <input [(ngModel)]="usuario" type="text" id="usuario" name="usuario" required>
+  <div>
+    <img src="../assets/images/logo.jpg" alt="Logo">
+  </div>
+  <div>
+    <label for="usuario">Usuario</label>
+    <input pInputText [(ngModel)]="usuario" type="text" id="usuario" name="usuario" required>
+  </div>
+  <div>
+    <label for="contrasena">Contraseña</label>
+    <input pInputText [(ngModel)]="contrasena" type="password" id="contrasena" name="contrasena" required>
+  </div>
+  <div>
+    <input type="checkbox" id="recordarContrasena" name="recordarContrasena">
+    <label for="recordarContrasena">Recordar contraseña</label>
+  </div>
+  <button pButton type="button" (click)="iniciarSesion()" label="Iniciar Sesión"></button>
 </div>
-<div>
-  <label for="contrasena">Contraseña</label>
-  <input [(ngModel)]="contrasena" type="password" id="contrasena" name="contrasena" required>
-</div>
-<button (click)="iniciarSesion()">Iniciar Sesión</button>
-</div>
+
+
+

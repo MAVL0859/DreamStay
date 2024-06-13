@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms'; // Importación necesaria para ngModel
+
+// Importando componentes de PrimeNG
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,8 +26,12 @@ import { FormularioReservaComponent } from './formulario-reserva/formulario-rese
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule // Importar FormsModule aquí
+    FormsModule, // Importar FormsModule aquí
+     // Importando módulos de PrimeNG aquí
+     InputTextModule,
+     ButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

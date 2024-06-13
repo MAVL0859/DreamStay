@@ -1,59 +1,71 @@
-
-
-body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f7f7f7;
-}
-
-
+/* Estilos generales del contenedor */
 .container {
-  max-width: 300px; /* Utilizando la medida de referencia */
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  justify-content: center;
-  align-items: center;
-  margin: auto; /* Centra horizontalmente */
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
 }
 
-
-
+/* Estiliza el título */
 h1 {
-  color: #333;
   text-align: center;
-  margin-bottom: 30px;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-label {
+/* Estilos para el logo */
+.container img {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 100px; /* Ajusta esto según el tamaño de tu logo */
+}
+
+/* Estilos para los campos de formulario y etiquetas */
+.container div {
+  margin-bottom: 15px;
+}
+
+.container label {
   display: block;
   margin-bottom: 5px;
+  color: #666;
 }
 
-input {
-  width: calc(100% - 20px);
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-button {
+/* Estilos para los inputs */
+input[pInputText] {
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Asegura que padding no aumente el tamaño del input */
 }
 
-button:hover {
+/* Estilos para el botón */
+button[pButton] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button[pButton]:hover {
   background-color: #0056b3;
+}
+
+/* Estilos para el checkbox y su etiqueta */
+.container input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Ajustes para responsividad */
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
 }

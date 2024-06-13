@@ -6,16 +6,13 @@ import { ReservaComponent } from './reserva/reserva.component';
 import { ListadoReservasComponent } from './listado-reservas/listado-reservas.component';
 import { RegistroComponent} from './registro/registro.component';
 
-
-
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'reserva', component: ReservaComponent },
   { path: 'listado-reservas', component: ListadoReservasComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'formulario-reserva', component: FormularioReservaComponent},
-  { path: '', redirectTo: '/registro', pathMatch: 'full' },
-  {path: '', redirectTo: '/login', pathMatch: 'full' }
+  { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({
